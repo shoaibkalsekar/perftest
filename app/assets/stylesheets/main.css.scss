@@ -1,0 +1,10 @@
+@import 'globals/reset';
+
+@import 'globals/vars';
+@import 'globals/fonts';
+@import 'globals/mixins';
+
+@import 'globals/base';
+
+// This file includes all styles related to forms
+@import 'blocks/ns-form';

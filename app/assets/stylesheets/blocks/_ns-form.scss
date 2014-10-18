@@ -1,0 +1,102 @@
+.ns-form{
+
+  // Everything here is in ns-form namespace
+
+
+
+  .form-group {
+
+    margin: 0 auto;
+
+    .form-header {
+      text-align: center;
+      font-weight: 400;
+      font-size: 40px;
+      line-height: 70px;
+      padding-bottom: 30px;
+      padding-top: 30px;
+      background: url(patterns/pattern.png);
+      border-bottom: 1px solid $orange;
+    }
+
+    .form-field {
+      padding: 15px 0;
+
+      .textbox {
+        width: 100%;
+        padding: 15px;
+        outline: none;
+        border: none;
+        background: darken($background-dark, 2%);
+        color: darken($font-gray, 10%);
+        font-size: 20px;
+        font-weight: 300;
+        border-bottom: 1px solid lighten($background-dark, 10%);
+
+        &:focus, &:hover {
+          border-bottom: 1px solid $font-gray;
+        }
+        // &:focus {
+        //   color: lighten($font-gray, 5%);
+        // }
+      }
+
+    }
+
+    .form-actions {
+      padding-top: 30px;
+      // border-top: 1px solid $purple;
+
+      .button {
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
+        display: block;
+        padding: 15px;
+        -webkit-appearance: none;
+        outline: none;
+        border: none;
+        color: darken($font-gray, 5%);
+        background: $background-dark;
+        font-size: 20px;
+        font-weight: 400;
+        // border-bottom: 1px solid darken($background-dark, 10%);
+        border: 1px solid darken($font-gray, 5%);
+      }
+    }
+
+  .form-content {
+    padding: 30px 0;
+  }
+
+
+  }
+
+
+  .form-group--big {
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  .content-wrapper {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+
+
+  .form-field .field_with_errors {
+    .textbox {
+      border-bottom: 1px solid $red;
+    }
+  }
+
+  .error-msg {
+    color: $red;
+    font-size: 12px;
+    padding: 8px 0;
+    text-align: right;
+    font-weight: 300;
+  }
+
+}

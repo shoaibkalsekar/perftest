@@ -1,0 +1,102 @@
+// Misc: mixins
+//==============
+$default-prefixes: webkit moz ms o;
+
+// To cover full area of the parent
+@mixin coverer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin prefix($property, $value, $prefixes: $default-prefixes) {
+  // Usage: @include prefix(property, value)
+  @each $prefix in $prefixes {
+    -#{$prefix}-#{$property}: #{$value};
+  }
+  #{$property}: #{$value};
+}
+
+//Transform function that rotates eements
+@mixin transform($degree) {
+  @include prefix("transform", $degree);
+}
+
+//border radius creator
+@mixin border-radius($radius) {
+  @include prefix("border-radius", $radius);
+}
+
+//border radius creator
+@mixin box-shadow($value) {
+  @include prefix("box-shadow", $value);
+}
+
+//Different radius each side
+@mixin border-radius-4($top-left, $top-right, $bottom-left, $bottom-right) {
+    -webkit-border-top-left-radius: $top-left;
+    -webkit-border-top-right-radius: $top-right;
+    -webkit-border-bottom-right-radius: $bottom-right;
+    -webkit-border-bottom-left-radius: $bottom-left;
+
+    -moz-border-radius-topleft: $top-left;
+    -moz-border-radius-topright: $top-right;
+    -moz-border-radius-bottomright: $bottom-right;
+    -moz-border-radius-bottomleft: $bottom-left;
+
+    border-top-left-radius: $top-left;
+    border-top-right-radius: $top-right;
+    border-bottom-right-radius: $bottom-right;
+    border-bottom-left-radius: $bottom-left;
+}
+
+//Bootstrap mixins for progress bars. You can find original copies
+//with the bootstrap assets (www.getbootstrap.com)
+// .progress-bar-variant($color) {
+//     background-color: $color;
+//     .progress-striped & {
+//         #gradient > .striped();
+//     }
+// }
+// Animations
+@mixin animation($animation) {
+  @include prefix("animation", $animation);
+}
+
+// #gradient {
+//     .striped($color: rgba(255,255,255,.15); $angle: 45deg) {
+//         background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, $color), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, $color), color-stop(.75, $color), color-stop(.75, transparent), to(transparent));
+//         background-image: -webkit-linear-gradient($angle, $color 25%, transparent 25%, transparent 50%, $color 50%, $color 75%, transparent 75%, transparent);
+//         background-image: -moz-linear-gradient($angle, $color 25%, transparent 25%, transparent 50%, $color 50%, $color 75%, transparent 75%, transparent);
+//         background-image: linear-gradient($angle, $color 25%, transparent 25%, transparent 50%, $color 50%, $color 75%, transparent 75%, transparent);
+//     }
+// }
+
+// **************
+
+// generic transform
+@mixin transform($transforms) {
+  @include prefix("transform", $transforms);
+}
+
+@mixin translate ($x, $y) {
+   @include transform(translate($x, $y));
+}
+
+@mixin transition($property: all, $delay: 1s, $timing: linear) {
+  $value: $property $delay $timing;
+  // use default prefixes
+  @include prefix('transition', $value);
+}
+
+
+// Clearfix to be used with extend only
+.clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

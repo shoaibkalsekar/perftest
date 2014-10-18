@@ -1,0 +1,26 @@
+.form-content
+
+  .content-wrapper
+    = form_for(@project) do |f|
+
+      - if @project.errors.any?
+        - errors = @project.errors.messages
+
+      .form-field
+        -# = f.label :name, class: "label"
+        / %br
+        = f.text_field :name, class: "textbox", placeholder: "The name of your project"
+        - if errors.present? && errors[:name].present?
+          .error-msg Name #{errors[:name][0]}
+
+      .form-field
+        -# = f.label :url, class: "label"
+        / %br
+        = f.text_field :url, class: "textbox", placeholder: "The link to your project"
+        - if errors.present? && errors[:url].present?
+          .error-msg URl #{errors[:url][0]}
+
+      .form-actions
+        = f.submit "Done", class: "button"
+
+
